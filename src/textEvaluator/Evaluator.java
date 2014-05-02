@@ -22,11 +22,15 @@ public class Evaluator {
 		evaluations = new HashMap<String, Double>();
 	}
 	
+	/**
+	 * 
+	 * @param sentences
+	 * @return
+	 */
 	public Map<String, Double> evaluateMultipleSentences(List<String> sentences){ 
 		for(String sentence: sentences){
 			evaluations.putAll(evaluateSentence(sentence));
-		}
-		
+		}	
 		return evaluations; 
 	}
 	
