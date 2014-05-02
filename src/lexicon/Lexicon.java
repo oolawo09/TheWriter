@@ -16,13 +16,12 @@ import utilities.*;
 public class Lexicon {
 	private List<Word> wordsLearnt;
 	private WordFactory wordFactory;
-	private Printer printer; 
 	private Memory memory; 
 	
 	public Lexicon(){ 
 		wordsLearnt = new ArrayList<Word>(); 
 		wordFactory = new WordFactory(); 
-		memory = new Memory(); 
+		memory = Memory.getInstance(); 
 		wordsLearnt = memory.recallWordsFromMemory(); 
 	}
 	
@@ -53,5 +52,12 @@ public class Lexicon {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Word> getWordsLearnt() {
+		return wordsLearnt;
+	}
 	
 }

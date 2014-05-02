@@ -20,12 +20,20 @@ public class Memory {
 	private List<String> sentencesInMemory; 
 	private SentenceStreams sentenceStreams; 
 	private WordStreams wordStreams; 
+	private static Memory _instance; 
 
-	public Memory(){ 
+	private Memory(){ 
 		wordsInMemory = new ArrayList<Word>();
 		sentencesInMemory = new ArrayList<String>(); 
 		sentenceStreams = new SentenceStreams(Constants.SENTENCES_FILE); 
 		wordStreams = new WordStreams(Constants.WORDS_FILE);
+	}
+	
+	public static Memory getInstance(){
+		if(_instance == null){
+			_instance = new Memory();
+		}
+		return _instance; 
 	}
 	
 	/**
