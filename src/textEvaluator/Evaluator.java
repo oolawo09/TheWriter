@@ -13,29 +13,22 @@ import memory.Memory;
 import utilities.*; 
 
 public class Evaluator {
-	private Parser parser;
-	private List<String> recentlyRead; 
-	private Memory memory; 
+	private Map<String, Double> evaluations; 
 	
 	/**
 	 * 
 	 */
 	public Evaluator(){ 
-		parser = new Parser(); 
-		recentlyRead = new ArrayList<String>();
-		memory = new Memory(); 
+		evaluations = new HashMap<String, Double>();
 	}
 	
-	/**
-	 * 
-	 * @param fileName
-	 */
-	public void read(String fileName){
-		recentlyRead = parser.parse(fileName); 
-		memory.commit(recentlyRead); 
+	public Map<String, Double> evaluateMultipleSentences(List<String> sentences){ 
+		for(String sentence: sentences){
+			evaluations.putAll(evaluateSentence(sentence));
+		}
+		
+		return evaluations; 
 	}
-	
-	
 	
 	
 	/**
