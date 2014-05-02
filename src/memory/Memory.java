@@ -28,23 +28,31 @@ public class Memory {
 		wordStreams = new WordStreams(Constants.WORDS_FILE);
 	}
 	
+	/**
+	 * 
+	 * @param words
+	 */
 	public void commit(List<?> words){ 
 		if(words.get(0) instanceof Word){
-			
+			wordStreams.out(words); 
 		}
+		else 
+			sentenceStreams.out(words); 
 	}
 
-	public void commit(String sentence){ 
-
-	}
-
-	
-
+	/**
+	 * 
+	 * @return
+	 */
 	public List<String> recallSentencesFromMemory(){
-
+		return (List<String>) sentenceStreams.in(); 
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Word> recallWordsFromMemory(){
-		
+		return (List<Word>) wordStreams.in(); 
 	}
 }

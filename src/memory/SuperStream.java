@@ -21,4 +21,12 @@ public class SuperStream {
 		inputStream = new InputStream(fileName); 
 		outputStream = new OutputStream(fileName); 
 	}
+	
+	public void out(Object object){
+		outputStream.out(object);
+	}
+	
+	public Object in(){
+		return inputStream.in(); 
+	}
 }
