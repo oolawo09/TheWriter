@@ -14,9 +14,9 @@ public class Parser {
 
 	/**
 	 * 
-	 * @param fileName
+	 * 
 	 */
-	public Parser(String fileName){
+	public Parser(){
 		parsedStrings = new ArrayList<String>();
 	}
 
