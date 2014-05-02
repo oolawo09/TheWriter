@@ -24,7 +24,7 @@ public class Word {
 	public Word(String word, String type){ 
 		this.word = word; 
 		this.type = type; 
-		this.weight = Constants.DEFAULT_WEIGHT; 
+		this.weight = Constants.DEFAULT_WORD_WEIGHT; 
 	}
 	
 	/**
