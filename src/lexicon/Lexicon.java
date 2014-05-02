@@ -22,7 +22,6 @@ public class Lexicon {
 	public Lexicon(){ 
 		wordsLearnt = new ArrayList<Word>(); 
 		wordFactory = new WordFactory(); 
-		printer = new Printer(); 
 		memory = new Memory(); 
 		wordsLearnt = memory.recallWordsFromMemory(); 
 	}
@@ -39,6 +38,19 @@ public class Lexicon {
 		}
 		else
 			wordsLearnt.add(wordFactory.newWord(word, type, weight));
+		memory.commit(wordsLearnt); 
+	}
+	
+	/**
+	 * 
+	 * @param word
+	 * @param newWeight
+	 */
+	public void updateWordWeight(String word, double newWeight){
+		for(Word w: wordsLearnt){
+			if(w.getWord().equals(word))
+				w.updateWeight(newWeight); 
+		}
 	}
 	
 	

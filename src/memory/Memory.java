@@ -55,4 +55,6 @@ public class Memory {
 	public List<Word> recallWordsFromMemory(){
 		return (List<Word>) wordStreams.in(); 
 	}
+	
+	
 }

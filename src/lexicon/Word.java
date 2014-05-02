@@ -40,7 +40,21 @@ public class Word {
 		this.weight = weight; 
 	}
 	
+	/**
+	 * 
+	 * @param newWeight a positive/negative double that's added to the word's weight 
+	 */
+	public void updateWeight(double newWeight){ 
+		weight += newWeight; 
+	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getWord() {
+		return word;
+	}
 	
 	
 }
