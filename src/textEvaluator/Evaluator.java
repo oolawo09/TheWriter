@@ -42,7 +42,7 @@ public class Evaluator {
 	 */
 	public Map<String,Double> evaluateSentence(String sentence){
 		String [] tokenizedSentence = tokeniseSentence(sentence);
-		return updateWordWeights(tokenizedSentence); 
+		return calculateWordWeights(tokenizedSentence); 
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class Evaluator {
 	 * @param tokenizedSentence
 	 * @return
 	 */
-	public Map<String,Double> updateWordWeights(String [] tokenizedSentence){ 
+	public Map<String,Double> calculateWordWeights(String [] tokenizedSentence){ 
 		Map<String, Double> result = new HashMap<String, Double>(); 
 
 		for(int i=0; i<tokenizedSentence.length; i++){ 
