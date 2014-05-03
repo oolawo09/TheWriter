@@ -107,7 +107,6 @@ public class WordMarkovModel extends AbstractModel{
 		double time = (etime - stime) / 1000.0;
 		this.messageViews("time to generate: " + time);
 		this.notifyViews(build.toString());
-		System.out.println("smarter than brute " + build.toString()); 
 	}
 
 

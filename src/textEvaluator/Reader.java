@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import lexicon.Lexicon;
 import memory.Memory;
 import utilities.Parser;
 
@@ -21,14 +20,12 @@ public class Reader {
 	private List<String> recentlyRead; 
 	Map<String, Double> evaluations;
 	private Memory memory; 
-	private Lexicon lexicon; 
 
 	public Reader() { 
 		evaluator = new Evaluator(); 
 		parser = new Parser(); 
 		recentlyRead = new ArrayList<String>();
 		memory = Memory.getInstance(); 
-		lexicon = new Lexicon(); 
 	}
 	
 	
@@ -55,19 +52,8 @@ public class Reader {
 	 */
 	public void updateWordWeights(){
 		evaluations = processEvaluations(recentlyRead); 
-		for(String word: evaluations.keySet()){
-			lexicon.updateWordWeight(word, evaluations.get(word)); 
-		}
-		commitEvaluations(evaluations); 
 	}
 	
-	/**
-	 * 
-	 * @param evaluationsToBeCommitted
-	 */
-	public void commitEvaluations(Map<String, Double> evaluationsToBeCommitted){
-		memory.commit(evaluationsToBeCommitted); 
-	}
-	
+
 
 }
