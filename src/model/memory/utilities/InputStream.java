@@ -59,7 +59,7 @@ public class InputStream {
 	public Object in(){ 
 		Object object = null; 
 		try {
-			object = ((ObjectInput) fileInputStream).readObject();
+			object = objectInputStream.readObject();
 			objectInputStream.close(); 
 			fileInputStream.close(); 
 		} catch (ClassNotFoundException e) {

@@ -7,9 +7,11 @@ package model.words;
  *
  */
 
+import java.io.Serializable;
+
 import utilities.*; 
 
-public class Word implements Comparable<Word>{
+public class Word implements Comparable<Word>, Serializable{
 	private String word; 
 	private String type;
 	private Double weight; 
@@ -66,7 +68,7 @@ public class Word implements Comparable<Word>{
 	 * 
 	 */
 	public String toString(){ 
-		return "word type: "+type + "actual word: " + word + "word weight: " + weight; 
+		return "word type: "+type + ", actual word: " + word + ", word weight: " + weight; 
 	}
 
 	@Override
