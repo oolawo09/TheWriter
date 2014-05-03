@@ -19,11 +19,13 @@ public class Reader {
 
 	private Evaluator evaluator; 
 	private List<String> recentlyRead; 
+	private Parser parser; 
 	Map<String, Double> evaluations;
 
 	public Reader() { 
 		evaluator = new Evaluator(); 
-		recentlyRead = new ArrayList<String>();		
+		recentlyRead = new ArrayList<String>();	
+		parser = new Parser(); 
 	}
 
 
@@ -32,10 +34,8 @@ public class Reader {
 	 * @param fileName
 	 */
 	public void read(String fileName){
-
 		//find a way to read through the view
-		//recentlyRead = parser.parse(fileName);
-		
+		recentlyRead = parser.parse(fileName);
 		evaluator.evaluate(recentlyRead);	
 	}
 

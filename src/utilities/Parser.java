@@ -3,6 +3,8 @@ package utilities;
  * @author anthonyotienoolawo
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +12,14 @@ import java.util.Scanner;
 
 public class Parser {
 	private Scanner scanner;
-	private List<String> parsedStrings;
+	private String parsedString;
 
 	/**
 	 * 
 	 * 
 	 */
 	public Parser(){
-		parsedStrings = new ArrayList<String>();
+		parsedString = new String("");
 	}
 
 	/**
@@ -25,13 +27,26 @@ public class Parser {
 	 * @param fileName
 	 * @return
 	 */
-	public List<String> parse(String fileName){
-		scanner = new Scanner (fileName);
-		while(scanner.hasNext()){
-			parsedStrings.add(scanner.next());
+	public String parse(String fileName){
+		try {
+			scanner = new Scanner (new File(fileName));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		scanner.close(); 
-		return parsedStrings; 
+		parsedString = scanner.useDelimiter("\\Z").next(); 
+		scanner.close(); 	
+		System.out.println(parsedString); 
+		return parsedString; 
 	}
+	
+	/*protected int readChars(Scanner s) {
+		myString = s.useDelimiter("\\Z").next();
+		s.close();    
+		return myString.length();
+
+	}*/
+
+
 
 }

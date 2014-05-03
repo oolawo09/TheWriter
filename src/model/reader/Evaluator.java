@@ -18,23 +18,28 @@ public class Evaluator {
 	private List<Word> wordsInMemory; 
 	private Memory memory; 
 
-	
+
 	/**
 	 * 
 	 */
 	public Evaluator(){ 
 		evaluations = new HashMap<String, Double>();
-		wordsInMemory = new ArrayList<Word>();
-		wordsInMemory = memory.recallWordsFromMemory();
 		memory = Memory.getInstance(); 
 	}
-	
+
+	public void initWordsInMemory(){ 
+		wordsInMemory = new ArrayList<Word>();
+		if(memory.recallWordsFromMemory() != null){
+			wordsInMemory = memory.recallWordsFromMemory();
+		}
+	}
+
 	public void evaluate(List <String> sentencesRead){ 
 		memory.commit(sentencesRead); 
 		evaluations = evaluateMultipleSentences(sentencesRead); 
-		updateAllWordsWeights(evaluations); 
+		//updateAllWordsWeights(evaluations); 
 	}
-	
+
 	/**
 	 * 
 	 * @param word
@@ -46,9 +51,9 @@ public class Evaluator {
 				return w; 
 			}
 		} 
-			return null; 
+		return null; 
 	}
-	
+
 	/**
 	 * 
 	 * @param evaluations
@@ -59,7 +64,7 @@ public class Evaluator {
 		}
 		memory.commit(wordsInMemory); 
 	}
-	
+
 	/**
 	 * 
 	 * @param word
@@ -73,12 +78,12 @@ public class Evaluator {
 		}
 		else 
 			locatedWord.updateWeight(weight);
-			
-		
+
+
 	}
-	
-	
-	
+
+
+
 	/**
 	 * 
 	 * @param sentences
@@ -90,9 +95,9 @@ public class Evaluator {
 		}	 
 		return evaluations; 
 	}
-	
 
-	
+
+
 	/**
 	 * 
 	 * @param sentence
@@ -102,7 +107,7 @@ public class Evaluator {
 		String [] tokenizedSentence = tokeniseSentence(sentence);
 		return calculateWordWeights(tokenizedSentence); 
 	}
-	
+
 	/**
 	 * 
 	 * @param tokenizedSentence
@@ -125,7 +130,7 @@ public class Evaluator {
 		}
 		return result; 
 	}
-	
+
 	/**
 	 * 
 	 * @param sentence
@@ -134,5 +139,5 @@ public class Evaluator {
 	private String [] tokeniseSentence(String sentence){ 
 		return sentence.split("\\s+");
 	}
-	
+
 }
