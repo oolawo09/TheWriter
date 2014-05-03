@@ -9,17 +9,75 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lexicon.Word;
+import memory.Memory;
 import utilities.*; 
 
 public class Evaluator {
 	private Map<String, Double> evaluations; 
+	private List<Word> wordsInMemory; 
+	private Memory memory; 
+
 	
 	/**
 	 * 
 	 */
 	public Evaluator(){ 
 		evaluations = new HashMap<String, Double>();
+		wordsInMemory = new ArrayList<Word>();
+		wordsInMemory = memory.recallWordsFromMemory();
+		memory = Memory.getInstance(); 
 	}
+	
+	public void evaluate(List <String> sentencesRead){ 
+		memory.commit(sentencesRead); 
+		evaluations = evaluateMultipleSentences(sentencesRead); 
+		updateAllWordsWeights(evaluations); 
+	}
+	
+	/**
+	 * 
+	 * @param word
+	 * @return
+	 */
+	public Word locateWord(String word){ 
+		for(Word w: wordsInMemory){ 
+			if(w.getWord().equals(word)){
+				return w; 
+			}
+		} 
+			return null; 
+	}
+	
+	/**
+	 * 
+	 * @param evaluations
+	 */
+	public void updateAllWordsWeights(Map<String, Double> evaluations){ 
+		for(String w: evaluations.keySet()){ 
+			updateWordWeight(w, evaluations.get(w)); 
+		}
+		memory.commit(wordsInMemory); 
+	}
+	
+	/**
+	 * 
+	 * @param word
+	 * @param weight
+	 */
+	public void updateWordWeight(String word, Double weight){ 
+		Word locatedWord = locateWord(word); 
+		if(locatedWord==null){
+			Word w = new Word(word, weight);
+			wordsInMemory.add(w); 
+		}
+		else 
+			locatedWord.updateWeight(weight);
+			
+		
+	}
+	
+	
 	
 	/**
 	 * 

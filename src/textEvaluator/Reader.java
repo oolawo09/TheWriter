@@ -20,17 +20,10 @@ public class Reader {
 	private Evaluator evaluator; 
 	private List<String> recentlyRead; 
 	Map<String, Double> evaluations;
-	private Memory memory; 
-	private WordFactory wordFactory; 
-	private List<Word> wordsInMemory; 
 
 	public Reader() { 
 		evaluator = new Evaluator(); 
-		recentlyRead = new ArrayList<String>();
-		memory = Memory.getInstance(); 
-		wordFactory = new WordFactory(); 
-		wordsInMemory = new ArrayList<Word>();
-		wordsInMemory = memory.recallWordsFromMemory();
+		recentlyRead = new ArrayList<String>();		
 	}
 
 
@@ -41,50 +34,10 @@ public class Reader {
 	public void read(String fileName){
 
 		//find a way to read through the view
-		//recentlyRead = parser.parse(fileName); 
-		memory.commit(recentlyRead); 
-		evaluations = processEvaluations(recentlyRead);
-		for(String w: evaluations.keySet()){ 
-			updateWordWeight(w, evaluations.get(w)); 
-		}
+		//recentlyRead = parser.parse(fileName);
 		
+		evaluator.evaluate(recentlyRead);	
 	}
 
-	/**
-	 * 
-	 * @param recentlyReadSentences
-	 * @return 
-	 */
-	private Map<String, Double> processEvaluations(List<String> recentlyReadSentences){ 
-		return evaluator.evaluateMultipleSentences(recentlyReadSentences);
-	}
-	
-	private Word locateWord(String word){ 
-		for(Word w: wordsInMemory){ 
-			if(w.getWord().equals(word)){
-				return w; 
-			}
-		} 
-			return null; 
-	}
-	
-	private void updateAllWordsWeights(Map<String, Double> evaluations){ 
-		
-	}
-	
-	private void updateWordWeight(String word, Double weight){ 
-		Word locatedWord = locateWord(word); 
-		if(locatedWord==null){
-			Word w = new Word(word, weight);
-			wordsInMemory.add(w); 
-		}
-		else 
-			locatedWord.updateWeight(weight);
-			
-		
-	}
-	
-	
 
-	
 }
