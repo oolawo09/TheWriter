@@ -25,6 +25,7 @@ public class Evaluator {
 	public Evaluator(){ 
 		evaluations = new HashMap<String, Double>();
 		memory = Memory.getInstance(); 
+		initWordsInMemory(); 
 	}
 
 	public void initWordsInMemory(){ 
@@ -37,7 +38,7 @@ public class Evaluator {
 	public void evaluate(List <String> sentencesRead){ 
 		memory.commit(sentencesRead); 
 		evaluations = evaluateMultipleSentences(sentencesRead); 
-		//updateAllWordsWeights(evaluations); 
+		updateAllWordsWeights(evaluations); 
 	}
 
 	/**
@@ -78,7 +79,6 @@ public class Evaluator {
 		}
 		else 
 			locatedWord.updateWeight(weight);
-
 
 	}
 
@@ -128,6 +128,7 @@ public class Evaluator {
 				result.put(word, weight);
 			}
 		}
+		System.out.println(result);
 		return result; 
 	}
 

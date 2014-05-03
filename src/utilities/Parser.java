@@ -13,12 +13,14 @@ import java.util.Scanner;
 public class Parser {
 	private Scanner scanner;
 	private String parsedString;
+	private List<String> sentences; 
 
 	/**
 	 * 
 	 * 
 	 */
 	public Parser(){
+		sentences = new ArrayList<String>(); 
 		parsedString = new String("");
 	}
 
@@ -27,7 +29,7 @@ public class Parser {
 	 * @param fileName
 	 * @return
 	 */
-	public String parse(String fileName){
+	public List<String> parse(String fileName){
 		try {
 			scanner = new Scanner (new File(fileName));
 		} catch (FileNotFoundException e) {
@@ -35,17 +37,22 @@ public class Parser {
 			e.printStackTrace();
 		}
 		parsedString = scanner.useDelimiter("\\Z").next(); 
-		scanner.close(); 	
-		System.out.println(parsedString); 
-		return parsedString; 
+		scanner.close(); 
+		return breakFileInputIntoStrings(); 
 	}
 	
-	/*protected int readChars(Scanner s) {
-		myString = s.useDelimiter("\\Z").next();
-		s.close();    
-		return myString.length();
-
-	}*/
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public List<String> breakFileInputIntoStrings(){ 
+		String [] temp = parsedString.split("[?.!]");
+		for(int i= 0; i<temp.length; i++){
+			sentences.add(temp[i]);
+		}
+		return sentences; 
+	}
 
 
 
