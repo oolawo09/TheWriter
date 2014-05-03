@@ -1,4 +1,4 @@
-package textEvaluator;
+package model.reader;
 
 /**
  * @author anthonyotienoolawo
@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lexicon.Word;
-import memory.Memory;
+import model.memory.Memory;
+import model.words.Word;
 import utilities.*; 
 
 public class Evaluator {

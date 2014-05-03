@@ -1,9 +1,8 @@
-package textGenerator.markov;
+package model.writer.markov;
 import java.util.*;
 import java.io.Reader;
 
-import utilities.IModel;
-import utilities.IView;
+import view.IView;
 
 /**
  * This class supplies a bare minimum model implementation,

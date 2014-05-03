@@ -1,4 +1,4 @@
-package lexicon;
+package model.words;
 /**
  * 
  * @author anthonyotienoolawo

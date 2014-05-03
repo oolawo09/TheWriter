@@ -1,5 +1,7 @@
-package memory;
+package model.memory;
 
+import model.memory.utilities.InputStream;
+import model.memory.utilities.OutputStream;
 import utilities.*;
 
 /**

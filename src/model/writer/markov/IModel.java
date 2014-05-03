@@ -1,5 +1,7 @@
-package utilities;
+package model.writer.markov;
 import java.util.*;
+
+import view.IView;
 
 /**
  * The interface for typical models used in Compsci100.

@@ -1,4 +1,4 @@
-package textGenerator.markov;
+package model.writer.markov;
 import java.util.*;
 
 import utilities.*; 

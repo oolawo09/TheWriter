@@ -1,4 +1,4 @@
-package lexicon;
+package model.words;
 /**
  * This class creates words returning a reference to each created word.  
  * 

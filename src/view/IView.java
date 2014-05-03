@@ -1,4 +1,4 @@
-package utilities;
+package view;
 
  
 public interface IView

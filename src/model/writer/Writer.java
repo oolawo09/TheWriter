@@ -1,9 +1,9 @@
-package textGenerator;
+package model.writer;
 
 import java.util.List;
 
-import lexicon.*;
-import memory.Memory;
+import model.memory.Memory;
+import model.words.*;
 
 /**
  * 

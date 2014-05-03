@@ -1,12 +1,12 @@
-package textEvaluator;
+package model.reader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import lexicon.Word;
-import lexicon.WordFactory;
-import memory.Memory;
+import model.memory.Memory;
+import model.words.Word;
+import model.words.WordFactory;
 import utilities.Parser;
 
 /**
