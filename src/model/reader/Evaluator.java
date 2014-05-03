@@ -50,10 +50,14 @@ public class Evaluator {
 		memory.commit(wordsInMemory); 
 		System.out.println(wordsInMemory); 
 	}
-	
+
 	public void updateWordWeight(String [] tokenisedSentence){ 
 		for(int i=0; i<tokenisedSentence.length; i++){
-			if(locateWord(tokenisedSentence[i])==null){
+			Word tempWord = locateWord(tokenisedSentence[i]);
+			String actualTempWord = tokenisedSentence[i]; 
+			if(actualTempWord.equals(""))
+				return; 
+			if(tempWord==null){
 				Word word = new Word(tokenisedSentence[i].toLowerCase(), Constants.DEFAULT_WORD_WEIGHT);
 				wordsInMemory.add(word); 
 			}
@@ -61,8 +65,8 @@ public class Evaluator {
 				locateWord(tokenisedSentence[i]).updateWeight(Constants.WORD_WEIGHT_SINGLE_UNIT_INCREMENT);
 		}
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @param word
@@ -76,7 +80,7 @@ public class Evaluator {
 		} 
 		return null; 
 	}
-	
+
 	/**
 	 * 
 	 * @param sentence
@@ -85,8 +89,8 @@ public class Evaluator {
 	private String [] tokeniseSentence(String sentence){ 
 		return sentence.split("\\s+");
 	}
-	
-	
-	
+
+
+
 
 }
