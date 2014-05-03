@@ -29,10 +29,11 @@ public class Evaluator {
 	public Map<String, Double> evaluateMultipleSentences(List<String> sentences){ 
 		for(String sentence: sentences){
 			evaluations.putAll(evaluateSentence(sentence));
-		}	
+		}	 
 		return evaluations; 
 	}
 	
+
 	
 	/**
 	 * 
@@ -63,7 +64,7 @@ public class Evaluator {
 				weight += Constants.WORD_WEIGHT_SINGLE_UNIT_INCREMENT;
 				result.put(word, weight);
 			}
-		}	
+		}
 		return result; 
 	}
 	

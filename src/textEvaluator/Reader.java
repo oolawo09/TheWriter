@@ -19,6 +19,7 @@ public class Reader {
 	private Evaluator evaluator; 
 	private Parser parser;
 	private List<String> recentlyRead; 
+	Map<String, Double> evaluations;
 	private Memory memory; 
 	private Lexicon lexicon; 
 
@@ -53,10 +54,19 @@ public class Reader {
 	 * 
 	 */
 	public void updateWordWeights(){
-		Map<String, Double> evaluations = processEvaluations(recentlyRead); 
+		evaluations = processEvaluations(recentlyRead); 
 		for(String word: evaluations.keySet()){
 			lexicon.updateWordWeight(word, evaluations.get(word)); 
 		}
+		commitEvaluations(evaluations); 
+	}
+	
+	/**
+	 * 
+	 * @param evaluationsToBeCommitted
+	 */
+	public void commitEvaluations(Map<String, Double> evaluationsToBeCommitted){
+		memory.commit(evaluationsToBeCommitted); 
 	}
 	
 

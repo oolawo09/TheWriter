@@ -29,7 +29,7 @@ public class InputStream {
 	 * 
 	 * @param fileName
 	 */
-	void initFileInputStream(String fileName){ 
+	private void initFileInputStream(String fileName){ 
 		try {
 			fileInputStream = new FileInputStream(fileName);
 		} catch (FileNotFoundException e) {
@@ -42,7 +42,7 @@ public class InputStream {
 	 * 
 	 * @param fileInputStream
 	 */
-	void initObjectInputStream(FileInputStream fileInputStream){ 
+	private void initObjectInputStream(FileInputStream fileInputStream){ 
 		try {
 			objectInputStream = new ObjectInputStream(fileInputStream);
 		} catch (IOException e) {

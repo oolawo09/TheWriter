@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import lexicon.Word;
 import utilities.*; 
@@ -20,6 +21,7 @@ public class Memory {
 	private List<String> sentencesInMemory; 
 	private SentenceStreams sentenceStreams; 
 	private WordStreams wordStreams; 
+	private WordWeightStreams wordWeightStreams; 
 	private static Memory _instance; 
 
 	private Memory(){ 
@@ -27,6 +29,7 @@ public class Memory {
 		sentencesInMemory = new ArrayList<String>(); 
 		sentenceStreams = new SentenceStreams(Constants.SENTENCES_FILE); 
 		wordStreams = new WordStreams(Constants.WORDS_FILE);
+		wordWeightStreams = new WordWeightStreams(Constants.WORD_WEIGHT_FILE); 
 	}
 	
 	public static Memory getInstance(){
@@ -47,6 +50,22 @@ public class Memory {
 		else 
 			sentenceStreams.out(words); 
 	}
+	
+	/**
+	 * 
+	 * @param words
+	 */
+	public void commit(Map<String, Double> wordWeights){ 
+		wordWeightStreams.out(wordWeights);
+	}
+	
+	/**
+	 * 
+	 * @param object
+	 */
+	public void commit(Object object){ 
+		wordWeightStreams.out(object);
+	}
 
 	/**
 	 * 
@@ -62,6 +81,15 @@ public class Memory {
 	 */
 	public List<Word> recallWordsFromMemory(){
 		return (List<Word>) wordStreams.in(); 
+	}
+	
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Map<String, Double> recallWordWeightsFromMemory(){ 
+		return (Map<String, Double>) wordWeightStreams.in(); 
 	}
 	
 	
