@@ -47,7 +47,7 @@ public class Parser {
 	 * @return
 	 */
 	
-	public List<String> breakFileInputIntoStrings(){ 
+	private List<String> breakFileInputIntoStrings(){ 
 		String [] temp = parsedString.split("[?.!]");
 		for(int i= 0; i<temp.length; i++){
 			sentences.add(temp[i]);
