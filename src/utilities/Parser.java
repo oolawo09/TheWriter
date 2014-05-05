@@ -38,7 +38,6 @@ public class Parser {
 		}
 		parsedString = scanner.useDelimiter("\\Z").next();
 		parsedString.replaceAll("[^a-zA-Z ]", "");
-		System.out.println(parsedString); 
 		scanner.close(); 
 		return breakFileInputIntoStrings(); 
 	}

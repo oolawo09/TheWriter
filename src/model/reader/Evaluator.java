@@ -48,7 +48,6 @@ public class Evaluator {
 		}
 		Collections.sort(wordsInMemory);
 		memory.commit(wordsInMemory); 
-		System.out.println(wordsInMemory); 
 	}
 
 	public void updateWordWeight(String [] tokenisedSentence){ 

@@ -60,13 +60,13 @@ public class WordMarkovModel extends AbstractModel{
 			if(i<myWrapAroundWordsHolder.length){
 				myWrapAroundWords[i]=myWrapAroundWordsHolder[i];
 				myWords[i]=myWrapAroundWords[i];
-				System.out.println(myWords[i]);
+				//System.out.println(myWords[i]);
 			}
 			else{
 				myWrapAroundWords[i]=myWrapAroundWordsHolder[index2];
 				index2++;
 				myWords[i]=myWrapAroundWords[i];
-				System.out.println(myWords[i]);
+				//System.out.println(myWords[i]);
 			}
 		}
 
@@ -107,8 +107,7 @@ public class WordMarkovModel extends AbstractModel{
 		double time = (etime - stime) / 1000.0;
 		this.messageViews("time to generate: " + time);
 		System.out.println(build.toString());
-		return build.toString(); 
-		
+		return build.toString(); 	
 	}
 
 	public void setMyString(String myString) {
