@@ -16,7 +16,7 @@ public class Main {
 		 Reader reader = new Reader();
 		 reader.read(Constants.SAMPLE_STORY_FILE); 
 		 Writer writer = new Writer(); 
-		 writer.write(5); 
+		 writer.write(Constants.DEFAULT_MARKOV_SEED); 
 	}
 	
 	

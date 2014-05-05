@@ -4,7 +4,7 @@ package model.writer.markov;
  * group of N words can be treated as a key in a map or an
  * element in a set, or an item to be searched for in an array.
  * <P>
- * @author YOU,COMPSCI 100 STUDENT
+ * @author anthonyotienoolawo
  */
 
 public class WordNgram implements Comparable<WordNgram>{
