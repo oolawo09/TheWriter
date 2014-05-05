@@ -1,4 +1,7 @@
 package model.reader;
+/**
+ * @author anthonyotienoolawo
+ */
 
 import static org.junit.Assert.*;
 

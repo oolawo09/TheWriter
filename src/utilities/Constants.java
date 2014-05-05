@@ -12,4 +12,5 @@ public class Constants {
 	public static final String WORDS_FILE = "/Users/anthonyotienoolawo/git/TheWriter/src/model/memory/data/words";
 	public static final String WORD_WEIGHT_FILE = "/Users/anthonyotienoolawo/git/TheWriter/src/memory/wordWeights";
 	public static final String SENTENCES_FILE = "/Users/anthonyotienoolawo/git/TheWriter/src/model/memory/data/sentences";
+	public static final Integer DEFAULT_MARKOV_WORD_COUNT = 1000; 
 }

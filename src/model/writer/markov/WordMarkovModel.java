@@ -87,7 +87,7 @@ public class WordMarkovModel extends AbstractModel{
 	}
 
 
-	public void smarterThanBrute(int k, int numWords){
+	public String smarterThanBrute(int k, int numWords){
 		StringBuilder build= new StringBuilder();
 		int count=0;
 		int start = myRandom.nextInt(myWords.length - k + 1);  
@@ -106,9 +106,14 @@ public class WordMarkovModel extends AbstractModel{
 		double etime = System.currentTimeMillis();
 		double time = (etime - stime) / 1000.0;
 		this.messageViews("time to generate: " + time);
-		this.notifyViews(build.toString());
+		System.out.println(build.toString());
+		return build.toString(); 
+		
 	}
 
+	public void setMyString(String myString) {
+		this.myString = myString;
+	}
 
 
 }
